@@ -1,23 +1,18 @@
-# GNS3 NetDevOps Labs
+# Lab GNS3: Routing Statis
 
-Sanitized GNS3 topology archives and network automation examples from `C:\LAB NET DEVOPS`. Router/switch firmware, disk images, runtime disks, private keys, and embedded credentials are deliberately excluded.
+Kumpulan project lab GNS3, topology dan bahan konfigurasi routing. README hanya Bahasa Indonesia.
 
-## Projects
+## Project
 
-- `mikrotik-chr-basic.gns3project` — MikroTik CHR connected to a GNS3 Cloud node.
-- `ospf-cisco-mikrotik.gns3project` — Cisco 3725, two MikroTik CHR routers, two vIOS-L2 switches, and four VPCS clients.
-- `static-routing.gns3project` — two MikroTik CHR routers, two vIOS-L2 switches, and four VPCS clients.
+- `mikrotik-chr-basic.gns3project` — MikroTik CHR tersambung ke node Cloud GNS3.
+- `static-routing.gns3project` — dua MikroTik CHR, dua switch Cisco vIOS-L2, dan empat VPCS.
 
-## Import requirements
+## Persiapan
 
-Install GNS3 and separately provide legally obtained, locally installed images matching topology node templates: MikroTik CHR, Cisco 3725 Dynamips IOS, and Cisco vIOS-L2. These vendor images are not included. Re-map images/templates if your local GNS3 names differ. Cloud nodes may need local adapter selection.
+Pasang GNS3 dan sediakan image MikroTik CHR serta Cisco vIOS-L2 yang didapat secara sah. Image vendor dan runtime disk tidak disertakan. Sesuaikan template/image lokal bila namanya berbeda. Node Cloud mungkin perlu pemilihan adapter pada mesin lokal.
 
-Archives contain topology JSON and available sanitized startup configs, not complete runnable virtual machines. Some original projects had no saved router startup config. Inspect `configs/` before use.
+Arsip berisi topology GNS3 dan konfigurasi startup VPCS yang tersedia, bukan virtual machine lengkap. Periksa topology dan simpan konfigurasi router sebelum menutup lab.
 
-## Netmiko example
+## Keamanan
 
-Install Netmiko, copy `.env.example` to `.env`, and set lab-only values. The example reads environment variables; do not commit `.env`. On Windows PowerShell, set variables with `$env:CISCO_HOST=...` before running. Example expects Cisco IOS Telnet and RouterOS access enabled in isolated lab.
-
-## Security
-
-Original OSPF project contained a Cisco password hash and RSA private key; both were excluded. Original automation script contained plaintext credentials; those were excluded and replaced with environment-variable lookups. Treat any previously used lab passwords as exposed and rotate them. Avoid publishing configs with real credentials, public addresses, or private keys.
+Jangan commit password, private key, alamat publik, atau konfigurasi perangkat produksi.
